@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8"/>
@@ -40,218 +39,126 @@ body::after{content:'';position:fixed;bottom:-200px;right:-100px;width:500px;hei
 .wrapper{max-width:900px;margin:0 auto;padding:0 24px 100px;position:relative;z-index:1}
 
 /* HEADER */
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(–border);margin-bottom:44px;animation:fadeDown .6s ease both;flex-wrap:wrap;gap:12px}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:44px;animation:fadeDown .6s ease both;flex-wrap:wrap;gap:12px}
 .logo-area{display:flex;align-items:center;gap:14px}
-.logo-img{width:48px;height:48px;border-radius:10px;background:var(–accent-dim);border:1px solid rgba(52,216,126,.25);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.logo-img{width:48px;height:48px;border-radius:10px;background:var(--accent-dim);border:1px solid rgba(52,216,126,.25);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .logo-img img{width:100%;height:100%;object-fit:contain}
-.logo-ph{font-family:‘DM Serif Display’,serif;font-size:22px;color:var(–accent)}
+.logo-ph{font-family:'DM Serif Display',serif;font-size:22px;color:var(--accent)}
 .logo-text{display:flex;flex-direction:column}
-.logo-name{font-family:‘DM Serif Display’,serif;font-size:20px;color:var(–text);letter-spacing:.1em;text-transform:uppercase}
-.logo-sub{font-family:‘DM Mono’,monospace;font-size:9px;color:var(–accent);letter-spacing:.2em;text-transform:uppercase;margin-top:2px}
-.header-badge{display:flex;align-items:center;gap:8px;background:var(–gold-dim);border:1px solid rgba(212,169,66,.3);border-radius:6px;padding:8px 14px}
-.badge-text{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–gold);letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+.logo-name{font-family:'DM Serif Display',serif;font-size:20px;color:var(--text);letter-spacing:.1em;text-transform:uppercase}
+.logo-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-top:2px}
+.header-badge{display:flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(212,169,66,.3);border-radius:6px;padding:8px 14px}
+.badge-text{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
 
 /* CONTROLS */
-.controls-bar{display:flex;align-items:center;gap:16px;margin-bottom:28px;animation:fadeUp .7s ease .05s both;flex-wrap:wrap;padding:14px 20px;background:var(–surface);border:1px solid var(–border);border-radius:10px}
+.controls-bar{display:flex;align-items:center;gap:16px;margin-bottom:28px;animation:fadeUp .7s ease .05s both;flex-wrap:wrap;padding:14px 20px;background:var(--surface);border:1px solid var(--border);border-radius:10px}
 .ctrl-group{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.ctrl-label{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);white-space:nowrap}
-.ctrl-divider{width:1px;height:26px;background:var(–border2)}
-.ctrl-btn{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.05em;padding:6px 13px;border-radius:5px;border:1px solid var(–border2);background:var(–surface3);color:var(–muted);cursor:pointer;transition:all .2s}
-.ctrl-btn:hover{border-color:var(–accent);color:var(–accent2)}
-.ctrl-btn.active{background:var(–accent-dim);border-color:rgba(52,216,126,.5);color:var(–accent)}
+.ctrl-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ctrl-divider{width:1px;height:26px;background:var(--border2)}
+.ctrl-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.05em;padding:6px 13px;border-radius:5px;border:1px solid var(--border2);background:var(--surface3);color:var(--muted);cursor:pointer;transition:all .2s}
+.ctrl-btn:hover{border-color:var(--accent);color:var(--accent2)}
+.ctrl-btn.active{background:var(--accent-dim);border-color:rgba(52,216,126,.5);color:var(--accent)}
 
 /* HERO */
 header{margin-bottom:44px;animation:fadeUp .7s ease both}
-.tag{display:inline-flex;align-items:center;gap:8px;font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(–accent);border:1px solid rgba(52,216,126,.3);padding:5px 14px;border-radius:3px;margin-bottom:20px;opacity:.85;background:var(–accent-dim)}
-.tag::before{content:’’;width:6px;height:6px;border-radius:50%;background:var(–accent);animation:pulse 2s ease infinite}
-h1{font-family:‘DM Serif Display’,serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:400;line-height:1.12;color:var(–text);margin-bottom:16px}
-h1 span{color:var(–accent)}
-.subtitle{color:var(–muted);font-size:1rem;line-height:1.8;max-width:600px}
-.subtitle strong{color:var(–accent2);font-weight:400}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(52,216,126,.3);padding:5px 14px;border-radius:3px;margin-bottom:20px;opacity:.85;background:var(--accent-dim)}
+.tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.4rem);font-weight:400;line-height:1.12;color:var(--text);margin-bottom:16px}
+h1 span{color:var(--accent)}
+.subtitle{color:var(--muted);font-size:1rem;line-height:1.8;max-width:600px}
+.subtitle strong{color:var(--accent2);font-weight:400}
 
 /* CARD */
-.card{background:var(–surface);border:1px solid var(–border);border-radius:14px;padding:32px;margin-bottom:24px;animation:fadeUp .7s ease both;position:relative;overflow:hidden}
-.card::before{content:’’;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,216,126,.2),transparent)}
-.card-title{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);margin-bottom:24px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:24px;animation:fadeUp .7s ease both;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(52,216,126,.2),transparent)}
+.card-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
 
 .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:580px){.input-grid{grid-template-columns:1fr}}
 .field{display:flex;flex-direction:column;gap:8px}
-.field label{font-size:12px;color:var(–muted);font-family:‘DM Mono’,monospace;letter-spacing:.05em}
-body[lang=“ar”] .field label{font-family:‘Noto Sans Arabic’,sans-serif;letter-spacing:0;text-align:right;font-size:13px}
-.field input{background:var(–surface3);border:1px solid var(–border);border-radius:8px;color:var(–text);font-family:‘Outfit’,sans-serif;font-size:15px;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
-.field input:focus{border-color:var(–accent);box-shadow:0 0 0 3px rgba(52,216,126,.07)}
-.field input::placeholder{color:var(–muted);opacity:.4}
+.field label{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:.05em}
+body[lang="ar"] .field label{font-family:'Noto Sans Arabic',sans-serif;letter-spacing:0;text-align:right;font-size:13px}
+.field input{background:var(--surface3);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:15px;padding:12px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(52,216,126,.07)}
+.field input::placeholder{color:var(--muted);opacity:.4}
 .slider-wrap{display:flex;flex-direction:column;gap:8px}
 .slider-row{display:flex;align-items:center;gap:12px}
-input[type=range]{flex:1;-webkit-appearance:none;height:4px;background:var(–border2);border-radius:2px;outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(–accent);cursor:pointer;border:3px solid var(–bg);box-shadow:0 0 0 1px var(–accent)}
-.slider-val{font-family:‘DM Mono’,monospace;font-size:13px;color:var(–accent);min-width:28px;text-align:right}
+input[type=range]{flex:1;-webkit-appearance:none;height:4px;background:var(--border2);border-radius:2px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 1px var(--accent)}
+.slider-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);min-width:28px;text-align:right}
 
 /* BUTTONS */
 .btn-row{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(–accent);color:#060e08;border:none;border-radius:8px;font-family:‘Outfit’,sans-serif;font-size:14px;font-weight:600;padding:14px 28px;cursor:pointer;transition:background .2s,transform .1s,box-shadow .2s;letter-spacing:.02em}
-body[lang=“ar”] .btn{font-family:‘Noto Sans Arabic’,sans-serif}
-.btn:hover{background:var(–accent2);box-shadow:0 0 24px rgba(52,216,126,.25)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#060e08;border:none;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;padding:14px 28px;cursor:pointer;transition:background .2s,transform .1s,box-shadow .2s;letter-spacing:.02em}
+body[lang="ar"] .btn{font-family:'Noto Sans Arabic',sans-serif}
+.btn:hover{background:var(--accent2);box-shadow:0 0 24px rgba(52,216,126,.25)}
 .btn:active{transform:scale(.98)}
 .btn svg{width:17px;height:17px;flex-shrink:0}
-.btn-sec{background:transparent;color:var(–accent);border:1px solid rgba(52,216,126,.4)}
-.btn-sec:hover{background:var(–accent-dim);box-shadow:none}
+.btn-sec{background:transparent;color:var(--accent);border:1px solid rgba(52,216,126,.4)}
+.btn-sec:hover{background:var(--accent-dim);box-shadow:none}
 
 /* RESULTS */
 #results{display:none;animation:fadeUp .5s ease both}
 .results-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:28px}
 @media(max-width:560px){.results-grid{grid-template-columns:1fr}}
-.result-box{background:var(–surface3);border:1px solid var(–border);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden}
+.result-box{background:var(--surface3);border:1px solid var(--border);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden}
 .result-box.green{border-color:rgba(52,216,126,.2)}
 .result-box.yellow{border-color:rgba(245,197,66,.2)}
 .result-box.blue{border-color:rgba(96,165,250,.2)}
 .result-box.redd{border-color:rgba(248,113,113,.2)}
-.result-box::before{content:’’;position:absolute;top:0;left:0;right:0;height:2px}
-.result-box.green::before{background:linear-gradient(90deg,var(–accent),transparent)}
-.result-box.yellow::before{background:linear-gradient(90deg,var(–warn),transparent)}
-.result-box.blue::before{background:linear-gradient(90deg,var(–blue),transparent)}
-.result-box.redd::before{background:linear-gradient(90deg,var(–red),transparent)}
-.result-label{font-family:‘DM Mono’,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(–muted);margin-bottom:12px}
-.result-value{font-family:‘DM Serif Display’,serif;font-size:clamp(1.5rem,4vw,2.1rem);font-weight:400;line-height:1;margin-bottom:4px}
-.result-box.green .result-value{color:var(–accent)}
-.result-box.yellow .result-value{color:var(–warn)}
+.result-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.result-box.green::before{background:linear-gradient(90deg,var(--accent),transparent)}
+.result-box.yellow::before{background:linear-gradient(90deg,var(--warn),transparent)}
+.result-box.blue::before{background:linear-gradient(90deg,var(--blue),transparent)}
+.result-box.redd::before{background:linear-gradient(90deg,var(--red),transparent)}
+.result-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.result-value{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4vw,2.1rem);font-weight:400;line-height:1;margin-bottom:4px}
+.result-box.green .result-value{color:var(--accent)}
+.result-box.yellow .result-value{color:var(--warn)}
 .result-box.blue .result-value{color:#93c5fd}
-.result-box.redd .result-value{color:var(–red)}
-.result-sub{font-size:11px;color:var(–muted)}
+.result-box.redd .result-value{color:var(--red)}
+.result-sub{font-size:11px;color:var(--muted)}
 
-.breakdown{border-top:1px solid var(–border);padding-top:24px;margin-top:4px}
-.breakdown-title{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(–muted);margin-bottom:16px}
+.breakdown{border-top:1px solid var(--border);padding-top:24px;margin-top:4px}
+.breakdown-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(26,46,31,.7);font-size:14px}
 .breakdown-row:last-child{border-bottom:none}
-.breakdown-row .lbl{color:var(–muted)}
-.breakdown-row .val{font-family:‘DM Mono’,monospace;font-size:13px;color:var(–text)}
-.breakdown-row .val.pos{color:var(–accent)}
-.breakdown-row .val.neg{color:var(–red)}
-.breakdown-row .val.neutral{color:var(–warn)}
+.breakdown-row .lbl{color:var(--muted)}
+.breakdown-row .val{font-family:'DM Mono',monospace;font-size:13px;color:var(--text)}
+.breakdown-row .val.pos{color:var(--accent)}
+.breakdown-row .val.neg{color:var(--red)}
+.breakdown-row .val.neutral{color:var(--warn)}
 
-.bar-section{margin-top:24px;padding-top:24px;border-top:1px solid var(–border)}
-.bar-label{font-family:‘DM Mono’,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(–muted);margin-bottom:18px}
+.bar-section{margin-top:24px;padding-top:24px;border-top:1px solid var(--border)}
+.bar-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
 .bar-item{margin-bottom:16px}
-.bar-meta{display:flex;justify-content:space-between;font-size:12px;color:var(–muted);margin-bottom:8px}
-.bar-track{height:8px;background:var(–border);border-radius:4px;overflow:hidden}
+.bar-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:8px}
+.bar-track{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
 .bar-fill{height:100%;border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1)}
-.bar-fill.green{background:linear-gradient(90deg,var(–accent),var(–accent2))}
-.bar-fill.warn{background:linear-gradient(90deg,var(–warn),#fde68a)}
-.bar-fill.red{background:linear-gradient(90deg,var(–red),#fca5a5)}
-.bar-fill.blue{background:linear-gradient(90deg,var(–blue),#93c5fd)}
+.bar-fill.green{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.bar-fill.warn{background:linear-gradient(90deg,var(--warn),#fde68a)}
+.bar-fill.red{background:linear-gradient(90deg,var(--red),#fca5a5)}
+.bar-fill.blue{background:linear-gradient(90deg,var(--blue),#93c5fd)}
 
 /* FOOTER */
-.site-footer{margin-top:60px;padding-top:26px;border-top:1px solid var(–border)}
+.site-footer{margin-top:60px;padding-top:26px;border-top:1px solid var(--border)}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:16px}
-.footer-brand{font-family:‘DM Serif Display’,serif;font-size:15px;color:var(–muted2);letter-spacing:.1em;text-transform:uppercase}
-.footer-itex{display:flex;align-items:center;gap:8px;background:var(–gold-dim);border:1px solid rgba(212,169,66,.25);border-radius:5px;padding:6px 14px}
-.footer-itex span{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–gold);letter-spacing:.06em}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:15px;color:var(--muted2);letter-spacing:.1em;text-transform:uppercase}
+.footer-itex{display:flex;align-items:center;gap:8px;background:var(--gold-dim);border:1px solid rgba(212,169,66,.25);border-radius:5px;padding:6px 14px}
+.footer-itex span{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:.06em}
 .footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.footer-bottom span{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–muted);letter-spacing:.05em;opacity:.7}
+.footer-bottom span{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.05em;opacity:.7}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ════════════════ PRINT/PDF ════════════════ */
-@media print{
-@page{size:A4 portrait;margin:0}
-html,body{margin:0;padding:0;background:#fff!important}
-body>*{display:none!important}
-#pdf-shell{display:block!important;margin:0;padding:0}
-#pdf-shell,#pdf-shell *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
-}
-
-#pdf-shell{display:none;font-family:‘Outfit’,sans-serif;color:#0d1f10;background:#fff;width:100%}
-
-/* report layout */
-.rpt{width:100%;background:#fff;color:#0d1f10;padding:0}
-
-/* ── Green banner top-left ── */
-.rpt-banner{
-background:#34d87e;
-padding:13px 28px 13px 28px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:0;
-}
-.rpt-banner-brand{
-display:flex;
-flex-direction:column;
-gap:2px;
-}
-.rpt-banner-name{
-font-family:‘DM Serif Display’,serif;
-font-size:22px;
-color:#ffffff;
-letter-spacing:.12em;
-text-transform:uppercase;
-font-weight:400;
-line-height:1;
-}
-.rpt-banner-sub{
-font-family:‘DM Mono’,monospace;
-font-size:8px;
-color:rgba(255,255,255,.85);
-letter-spacing:.22em;
-text-transform:uppercase;
-margin-top:3px;
-}
-.rpt-banner-badge{
-display:flex;
-align-items:center;
-gap:8px;
-background:rgba(255,255,255,.2);
-border:1px solid rgba(255,255,255,.4);
-border-radius:5px;
-padding:5px 12px;
-}
-.rpt-banner-medal{font-size:18px;line-height:1}
-.rpt-banner-btxt{
-font-family:‘DM Mono’,monospace;
-font-size:8px;
-color:#fff;
-text-transform:uppercase;
-letter-spacing:.07em;
-line-height:1.5;
-}
-
-.rpt-body{padding:18px 28px 24px}
-
-.rpt-hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #34d87e;padding-bottom:12px;margin-bottom:16px}
-.rpt-brand-name{font-family:‘DM Serif Display’,serif;font-size:20px;color:#0a1a0d;letter-spacing:.1em;text-transform:uppercase}
-.rpt-brand-sub{font-family:‘DM Mono’,monospace;font-size:9px;color:#34d87e;letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
-.rpt-badge-side{text-align:right}
-.rpt-medal{font-size:20px}
-.rpt-badge-txt{font-family:‘DM Mono’,monospace;font-size:8px;color:#b8860b;text-transform:uppercase;letter-spacing:.08em;line-height:1.6;margin-top:3px}
-.rpt-title{font-family:‘DM Serif Display’,serif;font-size:17px;color:#0d1f10;margin-bottom:2px}
-.rpt-sub{font-family:‘DM Mono’,monospace;font-size:9px;color:#5a7a60;letter-spacing:.05em;margin-bottom:14px}
-.rpt-meta{display:flex;gap:14px;flex-wrap:wrap;padding:10px 14px;background:#f0faf3;border-radius:6px;border:1px solid #c8e8d0;margin-bottom:16px}
-.rpt-mi{display:flex;flex-direction:column;gap:2px}
-.rpt-ml{font-family:‘DM Mono’,monospace;font-size:7.5px;color:#5a8068;text-transform:uppercase;letter-spacing:.1em}
-.rpt-mv{font-size:11px;color:#0d1f10;font-weight:600}
-.rpt-sec{font-family:‘DM Mono’,monospace;font-size:8.5px;text-transform:uppercase;letter-spacing:.12em;color:#34d87e;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #dceee2;margin-top:2px}
-.rpt-kpi-row{display:flex;gap:10px;margin-bottom:16px}
-.rpt-kpi{flex:1;padding:11px;border:2px solid #c8e8d0;border-radius:6px;text-align:center;background:#f8fdf9}
-.rpt-kpi-lbl{font-family:‘DM Mono’,monospace;font-size:7.5px;text-transform:uppercase;letter-spacing:.1em;color:#5a8068;margin-bottom:4px}
-.rpt-kpi-val{font-family:‘DM Serif Display’,serif;font-size:19px;color:#1a8a4a}
-.rpt-kpi-unit{font-size:8px;color:#5a8068;margin-top:2px}
-.rpt-tbl{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:10.5px}
-.rpt-tbl th{text-align:left;padding:7px 10px;background:#0d2a12;color:#34d87e;font-family:‘DM Mono’,monospace;font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
-.rpt-tbl td{padding:7px 10px;border-bottom:1px solid #e4f0e8;color:#0d1f10}
-.rpt-tbl tr:nth-child(even) td{background:#f7fbf8}
-.rpt-tbl .hl{color:#1a8a4a;font-weight:600}
-.rpt-ftr{margin-top:20px;padding-top:10px;border-top:2px solid #c8e8d0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
-.rpt-ftr span{font-family:‘DM Mono’,monospace;font-size:7.5px;color:#5a8068;letter-spacing:.05em}
+/* no print CSS needed — PDF generated as real file */
 </style>
-
 </head>
 <body lang="en">
 
 <!-- ═══════════ SCREEN ═══════════ -->
-
 <div class="wrapper">
 
   <div class="site-header">
@@ -327,37 +234,34 @@ line-height:1.5;
         <div class="result-box redd"><div class="result-label" id="rl-co2">CO₂ Avoided vs Incineration</div><div class="result-value" id="r-co2">—</div><div class="result-sub" id="rs-co2">tons CO₂ / year</div></div>
       </div>
 
-```
-  <div class="breakdown">
-    <div class="breakdown-title" id="lbl-bk">// Detailed Breakdown</div>
-    <div class="breakdown-row"><span class="lbl" id="bk1">Acetic Acid Produced</span><span class="val pos" id="v-ac">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk2">Formic Acid Produced</span><span class="val pos" id="v-fo">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk3">Acetic Acid Revenue</span><span class="val pos" id="v-acr">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk4">Formic Acid Revenue</span><span class="val pos" id="v-for">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk5">Total Operational Cost</span><span class="val neg" id="v-cost">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk6">Gross Margin</span><span class="val neutral" id="v-mgn">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk7">CO₂ Emitted (this system)</span><span class="val neutral" id="v-emit">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk8">CO₂ if Incinerated</span><span class="val neg" id="v-inc">—</span></div>
-    <div class="breakdown-row"><span class="lbl" id="bk9">Carbon Stored in Acids</span><span class="val pos" id="v-carb">—</span></div>
-  </div>
+      <div class="breakdown">
+        <div class="breakdown-title" id="lbl-bk">// Detailed Breakdown</div>
+        <div class="breakdown-row"><span class="lbl" id="bk1">Acetic Acid Produced</span><span class="val pos" id="v-ac">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk2">Formic Acid Produced</span><span class="val pos" id="v-fo">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk3">Acetic Acid Revenue</span><span class="val pos" id="v-acr">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk4">Formic Acid Revenue</span><span class="val pos" id="v-for">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk5">Total Operational Cost</span><span class="val neg" id="v-cost">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk6">Gross Margin</span><span class="val neutral" id="v-mgn">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk7">CO₂ Emitted (this system)</span><span class="val neutral" id="v-emit">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk8">CO₂ if Incinerated</span><span class="val neg" id="v-inc">—</span></div>
+        <div class="breakdown-row"><span class="lbl" id="bk9">Carbon Stored in Acids</span><span class="val pos" id="v-carb">—</span></div>
+      </div>
 
-  <div class="bar-section">
-    <div class="bar-label" id="lbl-bar">// CO₂ Emissions Comparison (kg CO₂e / ton PET)</div>
-    <div class="bar-item"><div class="bar-meta"><span id="bar1">Incineration</span><span>~2,293 kg</span></div><div class="bar-track"><div class="bar-fill red" id="bfill1"></div></div></div>
-    <div class="bar-item"><div class="bar-meta"><span id="bar2">Pyrolysis</span><span>~1,600 kg</span></div><div class="bar-track"><div class="bar-fill warn" id="bfill2"></div></div></div>
-    <div class="bar-item"><div class="bar-meta"><span id="bar3">Mechanical Recycling</span><span>~400 kg</span></div><div class="bar-track"><div class="bar-fill blue" id="bfill3"></div></div></div>
-    <div class="bar-item"><div class="bar-meta"><span id="bar4">This System (Photocatalytic)</span><span>~100 kg</span></div><div class="bar-track"><div class="bar-fill green" id="bfill4"></div></div></div>
-  </div>
+      <div class="bar-section">
+        <div class="bar-label" id="lbl-bar">// CO₂ Emissions Comparison (kg CO₂e / ton PET)</div>
+        <div class="bar-item"><div class="bar-meta"><span id="bar1">Incineration</span><span>~2,293 kg</span></div><div class="bar-track"><div class="bar-fill red" id="bfill1"></div></div></div>
+        <div class="bar-item"><div class="bar-meta"><span id="bar2">Pyrolysis</span><span>~1,600 kg</span></div><div class="bar-track"><div class="bar-fill warn" id="bfill2"></div></div></div>
+        <div class="bar-item"><div class="bar-meta"><span id="bar3">Mechanical Recycling</span><span>~400 kg</span></div><div class="bar-track"><div class="bar-fill blue" id="bfill3"></div></div></div>
+        <div class="bar-item"><div class="bar-meta"><span id="bar4">This System (Photocatalytic)</span><span>~100 kg</span></div><div class="bar-track"><div class="bar-fill green" id="bfill4"></div></div></div>
+      </div>
 
-  <div class="btn-row" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
-    <button class="btn btn-sec" onclick="generatePDF()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
-      <span id="btn-pdf">Download Impact Report (PDF)</span>
-    </button>
-  </div>
-</div>
-```
-
+      <div class="btn-row" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
+        <button class="btn btn-sec" onclick="generatePDF()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="18"/><line x1="15" y1="15" x2="12" y2="18"/></svg>
+          <span id="btn-pdf">Download Impact Report (PDF)</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <footer class="site-footer">
@@ -372,70 +276,7 @@ line-height:1.5;
   </footer>
 </div>
 
-<!-- ═══════════ PDF SHELL (printed only) ═══════════ -->
 
-<div id="pdf-shell">
-  <div class="rpt">
-
-```
-<!-- ── Green banner ── -->
-<div class="rpt-banner">
-  <div class="rpt-banner-brand">
-    <div class="rpt-banner-name">ECORA MATRIX</div>
-    <div class="rpt-banner-sub">Impact &amp; Return on Investment Report</div>
-  </div>
-  <div class="rpt-banner-badge">
-    <div class="rpt-banner-medal">🥇</div>
-    <div class="rpt-banner-btxt">Gold Medalist — SIIF 2025<br>ITEX 2026 Malaysia</div>
-  </div>
-</div>
-
-<div class="rpt-body">
-<div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #dceee2">
-  <div class="rpt-title">PET Upcycling Impact Report</div>
-  <div class="rpt-sub" id="rpt-date">—</div>
-</div>
-<div class="rpt-meta">
-  <div class="rpt-mi"><span class="rpt-ml">Inventor</span><span class="rpt-mv">Ali Hussain AlQadhib</span></div>
-  <div class="rpt-mi"><span class="rpt-ml">PET Input</span><span class="rpt-mv" id="rpt-pet">—</span></div>
-  <div class="rpt-mi"><span class="rpt-ml">Solution pH</span><span class="rpt-mv" id="rpt-ph">—</span></div>
-  <div class="rpt-mi"><span class="rpt-ml">Currency</span><span class="rpt-mv" id="rpt-cur">USD</span></div>
-  <div class="rpt-mi"><span class="rpt-ml">Patent</span><span class="rpt-mv">SA1020257911 (pending)</span></div>
-</div>
-<div class="rpt-sec">KEY PERFORMANCE INDICATORS</div>
-<div class="rpt-kpi-row">
-  <div class="rpt-kpi"><div class="rpt-kpi-lbl">PET Mass Processed</div><div class="rpt-kpi-val" id="rpt-kpi-pet">—</div><div class="rpt-kpi-unit">tons / year</div></div>
-  <div class="rpt-kpi"><div class="rpt-kpi-lbl">Net Profit</div><div class="rpt-kpi-val" id="rpt-kpi-profit">—</div><div class="rpt-kpi-unit" id="rpt-kpi-pu">/ year</div></div>
-  <div class="rpt-kpi"><div class="rpt-kpi-lbl">CO₂ Avoided</div><div class="rpt-kpi-val" id="rpt-kpi-co2">—</div><div class="rpt-kpi-unit">tons CO₂ / year</div></div>
-</div>
-<div class="rpt-sec">DETAILED FINANCIAL &amp; ENVIRONMENTAL BREAKDOWN</div>
-<table class="rpt-tbl">
-  <thead><tr><th>Metric</th><th>Value</th><th>Unit</th></tr></thead>
-  <tbody>
-    <tr><td>Acetic Acid Produced</td><td class="hl" id="rpt-ac">—</td><td>tons/year</td></tr>
-    <tr><td>Formic Acid Produced</td><td class="hl" id="rpt-fo">—</td><td>tons/year</td></tr>
-    <tr><td>Acetic Acid Revenue</td><td class="hl" id="rpt-acr">—</td><td></td></tr>
-    <tr><td>Formic Acid Revenue</td><td class="hl" id="rpt-for">—</td><td></td></tr>
-    <tr><td>Gross Revenue</td><td class="hl" id="rpt-grev">—</td><td></td></tr>
-    <tr><td>Total Operational Cost</td><td id="rpt-cost">—</td><td></td></tr>
-    <tr><td>Net Profit</td><td class="hl" id="rpt-net">—</td><td></td></tr>
-    <tr><td>Gross Margin</td><td id="rpt-mgn">—</td><td>%</td></tr>
-    <tr><td>CO₂ Emitted (this system)</td><td id="rpt-emit">—</td><td>tons CO₂/year</td></tr>
-    <tr><td>CO₂ if Incinerated</td><td id="rpt-cinc">—</td><td>tons CO₂/year</td></tr>
-    <tr><td>CO₂ Avoided (vs Incineration)</td><td class="hl" id="rpt-cavo">—</td><td>tons CO₂/year</td></tr>
-    <tr><td>Carbon Stored in Acids</td><td class="hl" id="rpt-carb">—</td><td>tons C</td></tr>
-  </tbody>
-</table>
-<div class="rpt-ftr">
-  <span>ECORA MATRIX · Ali Hussain AlQadhib · Diwan Al-Maaref Private School, Saudi Arabia</span>
-  <span>🌏 ITEX 2026 Malaysia &nbsp;|&nbsp; 🥇 SIIF 2025 Gold Medal</span>
-  <span id="rpt-fdate">—</span>
-</div>
-</div><!-- /rpt-body -->
-```
-
-  </div>
-</div>
 
 <script>
 /* ════ TRANSLATIONS ════ */
@@ -592,42 +433,302 @@ function calculate(){
   document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* ════ PDF via window.print() ════ */
+/* ════════════════════════════════════════════════
+   PURE-JS PDF BUILDER  — no external libraries
+   Uses raw PDF 1.4 spec. Works fully offline.
+════════════════════════════════════════════════ */
 function generatePDF(){
   if(!C.pet){alert(T[lang].aCalc);return}
-  const c=CURR[cur];
-  const now=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-  const s=(id,v)=>document.getElementById(id).textContent=v;
-
-  s('rpt-date','Generated: '+now);
-  s('rpt-fdate',now);
-  s('rpt-pet',fmt(C.pet)+' tons / year');
-  s('rpt-ph',C.ph);
-  s('rpt-cur',c.l);
-  s('rpt-kpi-pet',fmt(C.pet));
-  s('rpt-kpi-profit',c.s+fmt(C.np*c.r));
-  s('rpt-kpi-pu',c.l+' / year');
-  s('rpt-kpi-co2',fmt(C.cavo));
-  s('rpt-ac',fmt(C.ac,2));
-  s('rpt-fo',fmt(C.fo,2));
-  s('rpt-acr',c.s+fmt(C.ar*c.r));
-  s('rpt-for',c.s+fmt(C.fr*c.r));
-  s('rpt-grev',c.s+fmt(C.rev*c.r));
-  s('rpt-cost',c.s+fmt(C.cost*c.r));
-  s('rpt-net',(C.np>=0?'+':'')+c.s+fmt(C.np*c.r));
-  s('rpt-mgn',fmt(C.mgn,1));
-  s('rpt-emit',fmt(C.emit,1));
-  s('rpt-cinc',fmt(C.cinc,1));
-  s('rpt-cavo',fmt(C.cavo,1));
-  s('rpt-carb',fmt(C.carb,2));
 
   const btn=document.getElementById('btn-pdf');
-  const orig=btn.textContent;
   btn.textContent=T[lang].bPrinting;
-  /* small delay ensures DOM paints before print dialog opens */
-  setTimeout(()=>{window.print();btn.textContent=orig;},250);
+  btn.disabled=true;
+
+  setTimeout(()=>{
+    try{
+      const pdf=buildEcoraPDF();
+      const blob=new Blob([pdf],{type:'application/pdf'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url;
+      a.download='ECORA_MATRIX_Impact_Report.pdf';
+      a.click();
+      setTimeout(()=>URL.revokeObjectURL(url),2000);
+    }catch(e){
+      console.error(e);
+      alert('PDF error: '+e.message);
+    }
+    btn.textContent=T[lang].btnPdf||T['en'].btnPdf;
+    btn.disabled=false;
+  },100);
+}
+
+function buildEcoraPDF(){
+  /* ── values from calculator state ── */
+  const c    = CURR[cur];
+  const rate = c.r, sym = c.s, lbl = c.l;
+  const now  = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+  const fn=(n,d=0)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+  const mn=(n)=>sym+fn(n*rate);
+
+  /* ── PDF byte builder ── */
+  const enc=new TextEncoder();
+  let out=[], offsets=[], xref=[];
+
+  function w(s){ out.push(enc.encode(s)); }
+  function wln(s){ w(s+'\n'); }
+  function size(){ return out.reduce((a,b)=>a+b.length,0); }
+
+  function objStart(n){
+    offsets[n]=size();
+    wln(`${n} 0 obj`);
+  }
+  function objEnd(){ wln('endobj'); }
+
+  /* PDF header */
+  wln('%PDF-1.4');
+
+  /* obj 1 — catalog */
+  objStart(1);
+  wln('<<');
+  wln('/Type /Catalog');
+  wln('/Pages 2 0 R');
+  wln('>>');
+  objEnd();
+
+  /* obj 2 — pages */
+  objStart(2);
+  wln('<<');
+  wln('/Type /Pages');
+  wln('/Kids [3 0 R]');
+  wln('/Count 1');
+  wln('>>');
+  objEnd();
+
+  /* ── page content stream builder ── */
+  // We build PDF graphics ops (in PDF user units, 1pt = 1/72 inch)
+  // A4 = 595.28 x 841.89 pts.  Origin bottom-left in PDF.
+  // We work top-down: y_pdf = 841.89 - y_mm * 2.8346
+
+  const PH=841.89, PW=595.28;
+  const mm=v=>v*2.8346;           // mm → pts
+  const py=(y_mm)=>PH-mm(y_mm);  // top-down y → PDF y
+
+  let ops=[];
+  const op=s=>ops.push(s);
+
+  /* helpers */
+  function rgb(r,g,b,fill=true){
+    const f=(r/255).toFixed(3)+' '+(g/255).toFixed(3)+' '+(b/255).toFixed(3);
+    op(fill ? f+' rg' : f+' RG');
+  }
+  function rect_f(x,y,w,h,R,G,B){
+    rgb(R,G,B,true);
+    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re f`);
+  }
+  function rect_s(x,y,w,h,R,G,B,lw=0.5){
+    rgb(R,G,B,false);
+    op(`${lw} w`);
+    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re S`);
+  }
+  function rect_fs(x,y,w,h,fR,fG,fB,sR,sG,sB,lw=0.5){
+    rgb(fR,fG,fB,true); rgb(sR,sG,sB,false);
+    op(`${lw} w`);
+    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re B`);
+  }
+
+  function txt(x,y_mm,size,bold,R,G,B,str,align='L',maxW=200){
+    if(!str && str!==0) return;
+    str=String(str);
+    // PDF string: escape parens and backslash
+    const esc=str.replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
+    const font=bold?'/Fb':'(/F1';
+    op('BT');
+    op(`${bold?'/Fb':'/F1'} ${size} Tf`);
+    rgb(R,G,B,true);
+    if(align==='C'||align==='R'){
+      // estimate text width: ~0.5 * size per char (rough for Helvetica)
+      const tw=str.length*size*0.5;
+      const ox=align==='C'? (mm(maxW)-tw)/2 : mm(maxW)-tw;
+      op(`${(mm(x)+ox).toFixed(2)} ${(py(y_mm)-2).toFixed(2)} Td`);
+    } else {
+      op(`${mm(x).toFixed(2)} ${(py(y_mm)-2).toFixed(2)} Td`);
+    }
+    op(`(${esc}) Tj`);
+    op('ET');
+  }
+
+  /* ── DRAW PAGE ── */
+
+  // DARK HEADER
+  rect_f(0,0,210,30, 13,31,16);
+  // green accent bottom of header
+  rect_f(0,30,210,2, 52,216,126);
+
+  // header text
+  txt(16,13, 16,true, 52,216,126, 'ECORA MATRIX');
+  txt(16,21, 7,false, 52,216,126, 'IMPACT & RETURN ON INVESTMENT REPORT');
+  txt(130,11, 8,true,  212,169,66, 'GOLD MEDALIST  |  SIIF 2025','R',64);
+  txt(130,17, 7,false, 212,169,66, 'ITEX 2026 MALAYSIA','R',64);
+
+  // REPORT TITLE
+  txt(16,42, 14,true,  13,31,16, 'PET Upcycling Impact Report');
+  txt(16,49, 8,false,  90,128,104, 'Generated: '+now);
+
+  // META BOX
+  rect_fs(16,51,178,20, 240,250,243, 200,232,208, 0.3);
+  const meta=[
+    ['INVENTOR','Ali Hussain AlQadhib'],
+    ['PET INPUT',fn(C.pet)+' tons/year'],
+    ['SOLUTION pH',String(C.ph)],
+    ['CURRENCY',lbl],
+    ['PATENT','SA1020257911'],
+  ];
+  const cw=178/meta.length;
+  meta.forEach(([mk,mv],i)=>{
+    const mx=16+i*cw+2;
+    txt(mx,56, 6,false, 90,128,104, mk);
+    txt(mx,61, 8,true,  13,31,16,   mv);
+  });
+
+  // KPI SECTION TITLE
+  txt(16,78, 7,true, 52,216,126, 'KEY PERFORMANCE INDICATORS');
+  rect_f(16,79.5,178,0.6, 52,216,126);
+
+  // KPI BOXES
+  const kpis=[
+    ['PET MASS PROCESSED', fn(C.pet),        'tons / year'],
+    ['NET PROFIT',         mn(C.np),          lbl+' / year'],
+    ['CO2 AVOIDED',        fn(C.cavo),        'tons CO2 / year'],
+  ];
+  const bw=(178-8)/3;
+  kpis.forEach(([lab,val,unit],i)=>{
+    const kx=16+i*(bw+4);
+    rect_fs(kx,81,bw,26, 240,250,243, 200,232,208, 0.4);
+    txt(kx+2,86, 6,false, 90,128,104, lab,'C',bw-4);
+    txt(kx+2,93, 14,true, 52,216,126, val,'C',bw-4);
+    txt(kx+2,100, 6,false, 90,128,104, unit,'C',bw-4);
+  });
+
+  // TABLE SECTION TITLE
+  txt(16,113, 7,true, 52,216,126, 'DETAILED FINANCIAL & ENVIRONMENTAL BREAKDOWN');
+  rect_f(16,114.5,178,0.6, 52,216,126);
+
+  // TABLE HEADER ROW
+  rect_f(16,115,178,7, 13,31,16);
+  txt(18,121, 7,true, 52,216,126, 'METRIC');
+  txt(128,121, 7,true, 52,216,126, 'VALUE','C',40);
+  txt(168,121, 7,true, 52,216,126, 'UNIT','C',26);
+
+  const rows=[
+    ['Acetic Acid Produced',            fn(C.ac,2),  'tons/year',      true],
+    ['Formic Acid Produced',            fn(C.fo,2),  'tons/year',      true],
+    ['Acetic Acid Revenue',             mn(C.ar),    '',               true],
+    ['Formic Acid Revenue',             mn(C.fr),    '',               true],
+    ['Gross Revenue',                   mn(C.rev),   '',               true],
+    ['Total Operational Cost',          mn(C.cost),  '',               false],
+    ['Net Profit',   (C.np>=0?'+':'')+mn(C.np),      '',               true],
+    ['Gross Margin',                    fn(C.mgn,1), '%',              false],
+    ['CO2 Emitted (this system)',       fn(C.emit,1),'tons CO2/year',  false],
+    ['CO2 if Incinerated',              fn(C.cinc,1),'tons CO2/year',  false],
+    ['CO2 Avoided (vs Incineration)',   fn(C.cavo,1),'tons CO2/year',  true],
+    ['Carbon Stored in Acids',          fn(C.carb,2),'tons C',         true],
+  ];
+
+  const RH=7, tableTop=122;
+  rows.forEach(([met,val,unit,hl],i)=>{
+    const ry=tableTop+i*RH;
+    const bg=i%2===0?[240,250,243]:[255,255,255];
+    rect_fs(16,ry,178,RH, ...bg,200,232,208, 0.2);
+    txt(18,ry+5.5, 8,false, 13,31,16, met);
+    txt(128,ry+5.5, 8,hl, ...(hl?[26,138,74]:[13,31,16]), val,'C',40);
+    txt(168,ry+5.5, 7,false, 90,128,104, unit,'C',26);
+  });
+
+  // FOOTER
+  rect_f(0,273,210,24, 13,31,16);
+  rect_f(0,273,210,1.2, 52,216,126);
+  txt(16,279, 8,true,  52,216,126, 'ECORA MATRIX');
+  txt(16,284, 7,false, 90,128,104, 'Inventor: Ali Hussain AlQadhib');
+  txt(16,290, 6,false, 90,128,104, 'Patent: SA1020257911 (pending)');
+  txt(130,279, 8,true,  212,169,66, 'ITEX 2026 Malaysia  |  SIIF 2025 Gold Medal','R',64);
+  txt(130,284, 7,false, 90,128,104, now,'R',64);
+  txt(130,290, 6,false, 90,128,104, 'Brookite TiO2/rGO Photocatalytic Process','R',64);
+
+  /* ── assemble content stream ── */
+  const stream=ops.join('\n');
+  const streamBytes=enc.encode(stream);
+
+  /* obj 4 — font regular */
+  objStart(4);
+  wln('<<');
+  wln('/Type /Font');
+  wln('/Subtype /Type1');
+  wln('/BaseFont /Helvetica');
+  wln('/Name /F1');
+  wln('>>');
+  objEnd();
+
+  /* obj 5 — font bold */
+  objStart(5);
+  wln('<<');
+  wln('/Type /Font');
+  wln('/Subtype /Type1');
+  wln('/BaseFont /Helvetica-Bold');
+  wln('/Name /Fb');
+  wln('>>');
+  objEnd();
+
+  /* obj 6 — page */
+  objStart(6);
+  wln('<<');
+  wln('/Type /Page');
+  wln('/Parent 2 0 R');
+  wln(`/MediaBox [0 0 ${PW.toFixed(2)} ${PH.toFixed(2)}]`);
+  wln('/Contents 7 0 R');
+  wln('/Resources << /Font << /F1 4 0 R /Fb 5 0 R >> >>');
+  wln('>>');
+  objEnd();
+
+  /* obj 7 — content stream */
+  objStart(7);
+  wln('<<');
+  wln(`/Length ${streamBytes.length}`);
+  wln('>>');
+  w('stream\n');
+  out.push(streamBytes);
+  w('\nendstream\n');
+  objEnd();
+
+  /* obj 3 — update page count */
+  // Already written obj 2 with Kids. Fix obj 6 to point to page correctly.
+  // (Already set above via parent ref)
+
+  /* xref table */
+  const xrefOffset=size();
+  wln('xref');
+  wln(`0 8`);
+  wln('0000000000 65535 f ');
+  for(let i=1;i<=7;i++){
+    wln((offsets[i]||0).toString().padStart(10,'0')+' 00000 n ');
+  }
+  wln('trailer');
+  wln('<<');
+  wln('/Size 8');
+  wln('/Root 1 0 R');
+  wln('>>');
+  wln('startxref');
+  wln(String(xrefOffset));
+  w('%%EOF');
+
+  /* combine all chunks */
+  const total=size();
+  const result=new Uint8Array(total);
+  let pos=0;
+  for(const chunk of out){ result.set(chunk,pos); pos+=chunk.length; }
+  return result;
 }
 </script>
-
 </body>
 </html>
