@@ -154,6 +154,81 @@ body[lang="ar"] .btn{font-family:'Noto Sans Arabic',sans-serif}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* no print CSS needed — PDF generated as real file */
+
+/* ══ PRINT ══ */
+@media print {
+  @page { size: A4; margin: 12mm 14mm; }
+  body > * { display: none !important; }
+  #print-report { display: block !important; }
+}
+#print-report {
+  display: none;
+  font-family: Arial, sans-serif;
+  color: #0d1f10;
+  background: #fff;
+}
+/* report elements */
+#print-report .p-page { width:100%; }
+#print-report .p-hdr {
+  background: #0d1f10;
+  color: #34d87e;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+}
+#print-report .p-hdr-name { font-size: 22px; font-weight: 900; letter-spacing: 3px; }
+#print-report .p-hdr-sub  { font-size: 8px;  letter-spacing: 2px; margin-top: 3px; color: #34d87e; }
+#print-report .p-hdr-badge{ text-align:right; }
+#print-report .p-hdr-badge .medal { font-size: 20px; }
+#print-report .p-hdr-badge .btext { font-size: 8px; color: #d4a942; letter-spacing:1px; line-height:1.5; margin-top:3px; }
+#print-report .p-green-line { height: 3px; background: #34d87e; margin-bottom: 14px; }
+#print-report .p-title { font-size: 17px; font-weight: 700; color: #0d1f10; margin-bottom: 3px; }
+#print-report .p-sub   { font-size: 9px; color: #5a8068; margin-bottom: 14px; }
+#print-report .p-meta {
+  display: flex; gap: 0;
+  background: #f0faf3;
+  border: 1px solid #c8e8d0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+#print-report .p-meta-item { flex: 1; min-width: 100px; }
+#print-report .p-meta-label { font-size: 7px; color: #5a8068; text-transform: uppercase; letter-spacing: 1px; display:block; margin-bottom:2px; }
+#print-report .p-meta-value { font-size: 11px; font-weight: 700; color: #0d1f10; }
+#print-report .p-sec {
+  font-size: 8px; font-weight: 700; color: #34d87e;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  border-bottom: 1px solid #c8e8d0;
+  padding-bottom: 4px; margin-bottom: 10px;
+}
+#print-report .p-kpi-row { display: flex; gap: 10px; margin-bottom: 16px; }
+#print-report .p-kpi {
+  flex: 1; border: 2px solid #c8e8d0;
+  border-radius: 6px; padding: 10px 8px; text-align: center;
+  background: #f8fdf9;
+}
+#print-report .p-kpi-label { font-size: 7px; color: #5a8068; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+#print-report .p-kpi-val   { font-size: 20px; font-weight: 900; color: #1a8a4a; line-height:1; }
+#print-report .p-kpi-unit  { font-size: 8px; color: #5a8068; margin-top: 3px; }
+#print-report .p-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 10px; }
+#print-report .p-table th {
+  background: #0d1f10; color: #34d87e;
+  text-align: left; padding: 6px 9px;
+  font-size: 8px; letter-spacing:1px; text-transform:uppercase;
+}
+#print-report .p-table td { padding: 6px 9px; border-bottom: 1px solid #e0eee5; color: #0d1f10; }
+#print-report .p-table tr:nth-child(even) td { background: #f6fbf7; }
+#print-report .p-table .hl { color: #1a8a4a; font-weight: 700; }
+#print-report .p-ftr {
+  margin-top: 14px; padding-top: 10px;
+  border-top: 2px solid #c8e8d0;
+  display: flex; justify-content: space-between;
+  font-size: 8px; color: #5a8068;
+  flex-wrap: wrap; gap: 4px;
+}
 </style>
 </head>
 <body lang="en">
@@ -433,302 +508,121 @@ function calculate(){
   document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-/* ════════════════════════════════════════════════
-   PURE-JS PDF BUILDER  — no external libraries
-   Uses raw PDF 1.4 spec. Works fully offline.
-════════════════════════════════════════════════ */
 function generatePDF(){
   if(!C.pet){alert(T[lang].aCalc);return}
-
-  const btn=document.getElementById('btn-pdf');
-  btn.textContent=T[lang].bPrinting;
-  btn.disabled=true;
-
-  setTimeout(()=>{
-    try{
-      const pdf=buildEcoraPDF();
-      const blob=new Blob([pdf],{type:'application/pdf'});
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');
-      a.href=url;
-      a.download='ECORA_MATRIX_Impact_Report.pdf';
-      a.click();
-      setTimeout(()=>URL.revokeObjectURL(url),2000);
-    }catch(e){
-      console.error(e);
-      alert('PDF error: '+e.message);
-    }
-    btn.textContent=T[lang].btnPdf||T['en'].btnPdf;
-    btn.disabled=false;
-  },100);
-}
-
-function buildEcoraPDF(){
-  /* ── values from calculator state ── */
-  const c    = CURR[cur];
-  const rate = c.r, sym = c.s, lbl = c.l;
-  const now  = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
-
+  const c=CURR[cur];
+  const now=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   const fn=(n,d=0)=>n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
-  const mn=(n)=>sym+fn(n*rate);
-
-  /* ── PDF byte builder ── */
-  const enc=new TextEncoder();
-  let out=[], offsets=[], xref=[];
-
-  function w(s){ out.push(enc.encode(s)); }
-  function wln(s){ w(s+'\n'); }
-  function size(){ return out.reduce((a,b)=>a+b.length,0); }
-
-  function objStart(n){
-    offsets[n]=size();
-    wln(`${n} 0 obj`);
-  }
-  function objEnd(){ wln('endobj'); }
-
-  /* PDF header */
-  wln('%PDF-1.4');
-
-  /* obj 1 — catalog */
-  objStart(1);
-  wln('<<');
-  wln('/Type /Catalog');
-  wln('/Pages 2 0 R');
-  wln('>>');
-  objEnd();
-
-  /* obj 2 — pages */
-  objStart(2);
-  wln('<<');
-  wln('/Type /Pages');
-  wln('/Kids [3 0 R]');
-  wln('/Count 1');
-  wln('>>');
-  objEnd();
-
-  /* ── page content stream builder ── */
-  // We build PDF graphics ops (in PDF user units, 1pt = 1/72 inch)
-  // A4 = 595.28 x 841.89 pts.  Origin bottom-left in PDF.
-  // We work top-down: y_pdf = 841.89 - y_mm * 2.8346
-
-  const PH=841.89, PW=595.28;
-  const mm=v=>v*2.8346;           // mm → pts
-  const py=(y_mm)=>PH-mm(y_mm);  // top-down y → PDF y
-
-  let ops=[];
-  const op=s=>ops.push(s);
-
-  /* helpers */
-  function rgb(r,g,b,fill=true){
-    const f=(r/255).toFixed(3)+' '+(g/255).toFixed(3)+' '+(b/255).toFixed(3);
-    op(fill ? f+' rg' : f+' RG');
-  }
-  function rect_f(x,y,w,h,R,G,B){
-    rgb(R,G,B,true);
-    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re f`);
-  }
-  function rect_s(x,y,w,h,R,G,B,lw=0.5){
-    rgb(R,G,B,false);
-    op(`${lw} w`);
-    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re S`);
-  }
-  function rect_fs(x,y,w,h,fR,fG,fB,sR,sG,sB,lw=0.5){
-    rgb(fR,fG,fB,true); rgb(sR,sG,sB,false);
-    op(`${lw} w`);
-    op(`${mm(x).toFixed(2)} ${(py(y+h)).toFixed(2)} ${mm(w).toFixed(2)} ${mm(h).toFixed(2)} re B`);
-  }
-
-  function txt(x,y_mm,size,bold,R,G,B,str,align='L',maxW=200){
-    if(!str && str!==0) return;
-    str=String(str);
-    // PDF string: escape parens and backslash
-    const esc=str.replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');
-    const font=bold?'/Fb':'(/F1';
-    op('BT');
-    op(`${bold?'/Fb':'/F1'} ${size} Tf`);
-    rgb(R,G,B,true);
-    if(align==='C'||align==='R'){
-      // estimate text width: ~0.5 * size per char (rough for Helvetica)
-      const tw=str.length*size*0.5;
-      const ox=align==='C'? (mm(maxW)-tw)/2 : mm(maxW)-tw;
-      op(`${(mm(x)+ox).toFixed(2)} ${(py(y_mm)-2).toFixed(2)} Td`);
-    } else {
-      op(`${mm(x).toFixed(2)} ${(py(y_mm)-2).toFixed(2)} Td`);
-    }
-    op(`(${esc}) Tj`);
-    op('ET');
-  }
-
-  /* ── DRAW PAGE ── */
-
-  // DARK HEADER
-  rect_f(0,0,210,30, 13,31,16);
-  // green accent bottom of header
-  rect_f(0,30,210,2, 52,216,126);
-
-  // header text
-  txt(16,13, 16,true, 52,216,126, 'ECORA MATRIX');
-  txt(16,21, 7,false, 52,216,126, 'IMPACT & RETURN ON INVESTMENT REPORT');
-  txt(130,11, 8,true,  212,169,66, 'GOLD MEDALIST  |  SIIF 2025','R',64);
-  txt(130,17, 7,false, 212,169,66, 'ITEX 2026 MALAYSIA','R',64);
-
-  // REPORT TITLE
-  txt(16,42, 14,true,  13,31,16, 'PET Upcycling Impact Report');
-  txt(16,49, 8,false,  90,128,104, 'Generated: '+now);
-
-  // META BOX
-  rect_fs(16,51,178,20, 240,250,243, 200,232,208, 0.3);
-  const meta=[
-    ['INVENTOR','Ali Hussain AlQadhib'],
-    ['PET INPUT',fn(C.pet)+' tons/year'],
-    ['SOLUTION pH',String(C.ph)],
-    ['CURRENCY',lbl],
-    ['PATENT','SA1020257911'],
-  ];
-  const cw=178/meta.length;
-  meta.forEach(([mk,mv],i)=>{
-    const mx=16+i*cw+2;
-    txt(mx,56, 6,false, 90,128,104, mk);
-    txt(mx,61, 8,true,  13,31,16,   mv);
-  });
-
-  // KPI SECTION TITLE
-  txt(16,78, 7,true, 52,216,126, 'KEY PERFORMANCE INDICATORS');
-  rect_f(16,79.5,178,0.6, 52,216,126);
-
-  // KPI BOXES
-  const kpis=[
-    ['PET MASS PROCESSED', fn(C.pet),        'tons / year'],
-    ['NET PROFIT',         mn(C.np),          lbl+' / year'],
-    ['CO2 AVOIDED',        fn(C.cavo),        'tons CO2 / year'],
-  ];
-  const bw=(178-8)/3;
-  kpis.forEach(([lab,val,unit],i)=>{
-    const kx=16+i*(bw+4);
-    rect_fs(kx,81,bw,26, 240,250,243, 200,232,208, 0.4);
-    txt(kx+2,86, 6,false, 90,128,104, lab,'C',bw-4);
-    txt(kx+2,93, 14,true, 52,216,126, val,'C',bw-4);
-    txt(kx+2,100, 6,false, 90,128,104, unit,'C',bw-4);
-  });
-
-  // TABLE SECTION TITLE
-  txt(16,113, 7,true, 52,216,126, 'DETAILED FINANCIAL & ENVIRONMENTAL BREAKDOWN');
-  rect_f(16,114.5,178,0.6, 52,216,126);
-
-  // TABLE HEADER ROW
-  rect_f(16,115,178,7, 13,31,16);
-  txt(18,121, 7,true, 52,216,126, 'METRIC');
-  txt(128,121, 7,true, 52,216,126, 'VALUE','C',40);
-  txt(168,121, 7,true, 52,216,126, 'UNIT','C',26);
-
-  const rows=[
-    ['Acetic Acid Produced',            fn(C.ac,2),  'tons/year',      true],
-    ['Formic Acid Produced',            fn(C.fo,2),  'tons/year',      true],
-    ['Acetic Acid Revenue',             mn(C.ar),    '',               true],
-    ['Formic Acid Revenue',             mn(C.fr),    '',               true],
-    ['Gross Revenue',                   mn(C.rev),   '',               true],
-    ['Total Operational Cost',          mn(C.cost),  '',               false],
-    ['Net Profit',   (C.np>=0?'+':'')+mn(C.np),      '',               true],
-    ['Gross Margin',                    fn(C.mgn,1), '%',              false],
-    ['CO2 Emitted (this system)',       fn(C.emit,1),'tons CO2/year',  false],
-    ['CO2 if Incinerated',              fn(C.cinc,1),'tons CO2/year',  false],
-    ['CO2 Avoided (vs Incineration)',   fn(C.cavo,1),'tons CO2/year',  true],
-    ['Carbon Stored in Acids',          fn(C.carb,2),'tons C',         true],
-  ];
-
-  const RH=7, tableTop=122;
-  rows.forEach(([met,val,unit,hl],i)=>{
-    const ry=tableTop+i*RH;
-    const bg=i%2===0?[240,250,243]:[255,255,255];
-    rect_fs(16,ry,178,RH, ...bg,200,232,208, 0.2);
-    txt(18,ry+5.5, 8,false, 13,31,16, met);
-    txt(128,ry+5.5, 8,hl, ...(hl?[26,138,74]:[13,31,16]), val,'C',40);
-    txt(168,ry+5.5, 7,false, 90,128,104, unit,'C',26);
-  });
-
-  // FOOTER
-  rect_f(0,273,210,24, 13,31,16);
-  rect_f(0,273,210,1.2, 52,216,126);
-  txt(16,279, 8,true,  52,216,126, 'ECORA MATRIX');
-  txt(16,284, 7,false, 90,128,104, 'Inventor: Ali Hussain AlQadhib');
-  txt(16,290, 6,false, 90,128,104, 'Patent: SA1020257911 (pending)');
-  txt(130,279, 8,true,  212,169,66, 'ITEX 2026 Malaysia  |  SIIF 2025 Gold Medal','R',64);
-  txt(130,284, 7,false, 90,128,104, now,'R',64);
-  txt(130,290, 6,false, 90,128,104, 'Brookite TiO2/rGO Photocatalytic Process','R',64);
-
-  /* ── assemble content stream ── */
-  const stream=ops.join('\n');
-  const streamBytes=enc.encode(stream);
-
-  /* obj 4 — font regular */
-  objStart(4);
-  wln('<<');
-  wln('/Type /Font');
-  wln('/Subtype /Type1');
-  wln('/BaseFont /Helvetica');
-  wln('/Name /F1');
-  wln('>>');
-  objEnd();
-
-  /* obj 5 — font bold */
-  objStart(5);
-  wln('<<');
-  wln('/Type /Font');
-  wln('/Subtype /Type1');
-  wln('/BaseFont /Helvetica-Bold');
-  wln('/Name /Fb');
-  wln('>>');
-  objEnd();
-
-  /* obj 6 — page */
-  objStart(6);
-  wln('<<');
-  wln('/Type /Page');
-  wln('/Parent 2 0 R');
-  wln(`/MediaBox [0 0 ${PW.toFixed(2)} ${PH.toFixed(2)}]`);
-  wln('/Contents 7 0 R');
-  wln('/Resources << /Font << /F1 4 0 R /Fb 5 0 R >> >>');
-  wln('>>');
-  objEnd();
-
-  /* obj 7 — content stream */
-  objStart(7);
-  wln('<<');
-  wln(`/Length ${streamBytes.length}`);
-  wln('>>');
-  w('stream\n');
-  out.push(streamBytes);
-  w('\nendstream\n');
-  objEnd();
-
-  /* obj 3 — update page count */
-  // Already written obj 2 with Kids. Fix obj 6 to point to page correctly.
-  // (Already set above via parent ref)
-
-  /* xref table */
-  const xrefOffset=size();
-  wln('xref');
-  wln(`0 8`);
-  wln('0000000000 65535 f ');
-  for(let i=1;i<=7;i++){
-    wln((offsets[i]||0).toString().padStart(10,'0')+' 00000 n ');
-  }
-  wln('trailer');
-  wln('<<');
-  wln('/Size 8');
-  wln('/Root 1 0 R');
-  wln('>>');
-  wln('startxref');
-  wln(String(xrefOffset));
-  w('%%EOF');
-
-  /* combine all chunks */
-  const total=size();
-  const result=new Uint8Array(total);
-  let pos=0;
-  for(const chunk of out){ result.set(chunk,pos); pos+=chunk.length; }
-  return result;
+  const mn=(n)=>c.s+fn(n*c.r);
+  document.getElementById('rpt-date').textContent   = 'Generated: '+now;
+  document.getElementById('rpt-pet').textContent    = fn(C.pet)+' tons / year';
+  document.getElementById('rpt-ph').textContent     = C.ph;
+  document.getElementById('rpt-cur').textContent    = c.l;
+  document.getElementById('rpt-kpi-pet').textContent= fn(C.pet);
+  document.getElementById('rpt-kpi-np').textContent = mn(C.np);
+  document.getElementById('rpt-kpi-co2').textContent= fn(C.cavo);
+  document.getElementById('rpt-ac').textContent     = fn(C.ac,2);
+  document.getElementById('rpt-fo').textContent     = fn(C.fo,2);
+  document.getElementById('rpt-acr').textContent    = mn(C.ar);
+  document.getElementById('rpt-for').textContent    = mn(C.fr);
+  document.getElementById('rpt-rev').textContent    = mn(C.rev);
+  document.getElementById('rpt-cost').textContent   = mn(C.cost);
+  document.getElementById('rpt-np').textContent     = (C.np>=0?'+':'')+mn(C.np);
+  document.getElementById('rpt-mgn').textContent    = fn(C.mgn,1)+'%';
+  document.getElementById('rpt-emit').textContent   = fn(C.emit,1)+' t CO2/yr';
+  document.getElementById('rpt-cinc').textContent   = fn(C.cinc,1)+' t CO2/yr';
+  document.getElementById('rpt-cavo').textContent   = fn(C.cavo,1)+' t CO2/yr';
+  document.getElementById('rpt-carb').textContent   = fn(C.carb,2)+' t C';
+  window.print();
 }
 </script>
+
+<!-- ══ PRINT REPORT (hidden on screen, shown on print) ══ -->
+<div id="print-report">
+  <div class="p-page">
+    <div class="p-hdr">
+      <div>
+        <div class="p-hdr-name">ECORA MATRIX</div>
+        <div class="p-hdr-sub">IMPACT &amp; RETURN ON INVESTMENT REPORT</div>
+      </div>
+      <div class="p-hdr-badge">
+        <div class="medal">🥇</div>
+        <div class="btext">GOLD MEDALIST — SIIF 2025<br>ITEX 2026 MALAYSIA</div>
+      </div>
+    </div>
+    <div class="p-green-line"></div>
+
+    <div class="p-title">PET Upcycling Impact Report</div>
+    <div class="p-sub" id="rpt-date">—</div>
+
+    <div class="p-meta">
+      <div class="p-meta-item">
+        <span class="p-meta-label">Inventor</span>
+        <span class="p-meta-value">Ali Hussain AlQadhib</span>
+      </div>
+      <div class="p-meta-item">
+        <span class="p-meta-label">PET Input</span>
+        <span class="p-meta-value" id="rpt-pet">—</span>
+      </div>
+      <div class="p-meta-item">
+        <span class="p-meta-label">Solution pH</span>
+        <span class="p-meta-value" id="rpt-ph">—</span>
+      </div>
+      <div class="p-meta-item">
+        <span class="p-meta-label">Currency</span>
+        <span class="p-meta-value" id="rpt-cur">—</span>
+      </div>
+      <div class="p-meta-item">
+        <span class="p-meta-label">Patent</span>
+        <span class="p-meta-value">SA1020257911</span>
+      </div>
+    </div>
+
+    <div class="p-sec">Key Performance Indicators</div>
+    <div class="p-kpi-row">
+      <div class="p-kpi">
+        <div class="p-kpi-label">PET Mass Processed</div>
+        <div class="p-kpi-val" id="rpt-kpi-pet">—</div>
+        <div class="p-kpi-unit">tons / year</div>
+      </div>
+      <div class="p-kpi">
+        <div class="p-kpi-label">Net Profit</div>
+        <div class="p-kpi-val" id="rpt-kpi-np">—</div>
+        <div class="p-kpi-unit">/ year</div>
+      </div>
+      <div class="p-kpi">
+        <div class="p-kpi-label">CO2 Avoided</div>
+        <div class="p-kpi-val" id="rpt-kpi-co2">—</div>
+        <div class="p-kpi-unit">tons CO2 / year</div>
+      </div>
+    </div>
+
+    <div class="p-sec">Detailed Financial &amp; Environmental Breakdown</div>
+    <table class="p-table">
+      <thead>
+        <tr><th>Metric</th><th>Value</th><th>Unit / Note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Acetic Acid Produced</td><td class="hl" id="rpt-ac">—</td><td>tons/year</td></tr>
+        <tr><td>Formic Acid Produced</td><td class="hl" id="rpt-fo">—</td><td>tons/year</td></tr>
+        <tr><td>Acetic Acid Revenue</td><td class="hl" id="rpt-acr">—</td><td></td></tr>
+        <tr><td>Formic Acid Revenue</td><td class="hl" id="rpt-for">—</td><td></td></tr>
+        <tr><td>Gross Revenue</td><td class="hl" id="rpt-rev">—</td><td></td></tr>
+        <tr><td>Total Operational Cost</td><td id="rpt-cost">—</td><td></td></tr>
+        <tr><td>Net Profit</td><td class="hl" id="rpt-np">—</td><td></td></tr>
+        <tr><td>Gross Margin</td><td id="rpt-mgn">—</td><td></td></tr>
+        <tr><td>CO2 Emitted (this system)</td><td id="rpt-emit">—</td><td></td></tr>
+        <tr><td>CO2 if Incinerated</td><td id="rpt-cinc">—</td><td></td></tr>
+        <tr><td>CO2 Avoided (vs Incineration)</td><td class="hl" id="rpt-cavo">—</td><td></td></tr>
+        <tr><td>Carbon Stored in Acids</td><td class="hl" id="rpt-carb">—</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="p-ftr">
+      <span>ECORA MATRIX · Inventor: Ali Hussain AlQadhib · Patent SA1020257911 (pending)</span>
+      <span>🌏 ITEX 2026 Malaysia | 🥇 SIIF 2025 Gold Medal</span>
+    </div>
+  </div>
+</div>
 </body>
 </html>
