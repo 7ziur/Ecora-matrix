@@ -157,9 +157,25 @@ body[lang="ar"] .btn{font-family:'Noto Sans Arabic',sans-serif}
 
 /* ══ PRINT ══ */
 @media print {
-  @page { size: A4; margin: 12mm 14mm; }
+  @page { size: A4; margin: 10mm 14mm; }
+
+  /* hide everything on screen */
   body > * { display: none !important; }
-  #print-report { display: block !important; }
+
+  /* show only the report */
+  #print-report {
+    display: block !important;
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 100%;
+  }
+
+  /* force background colours to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 }
 #print-report {
   display: none;
